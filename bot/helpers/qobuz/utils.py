@@ -238,7 +238,6 @@ def smart_discography_filter(
     for item in items:
         title_ = essence(item["title"])
         if title_ not in title_grouped:  # ?
-            #            if (t := essence(item["title"])) not in title_grouped:
             title_grouped[title_] = []
         title_grouped[title_].append(item)
 

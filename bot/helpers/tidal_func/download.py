@@ -34,7 +34,6 @@ def __parseContributors__(roleType, Contributors):
     
 
 async def __getMetaData__(track: Track, album: Album, stream, quality):
-    #composer = __parseContributors__('Composer', contributors)
     metadata = base_metadata.copy()
     metadata['title'] = track.title
     metadata['album'] = album.title
@@ -91,7 +90,6 @@ async def downloadTrack(track: Track, album=None, playlist=None, partSize=104857
         if sid:
             metadata['item_id'] = sid
         path, _, _ = await get_file_name(user, metadata, type)
-        #path = getTrackPath(track, stream, user['r_id'], album, playlist)
 
         dupe = await check_music_exist(metadata, user, t_source=type)
         if dupe: return

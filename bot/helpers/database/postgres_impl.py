@@ -6,7 +6,6 @@ from .postgres_db import DataBaseHandle
 
 from bot import Config
 
-#special_characters = ['!','#','$','%', '&','@','[',']',' ',']','_', ',', '.', ':', ';', '<', '>', '?', '\\', '^', '`', '{', '|', '}', '~']
 
 """
 BOT SETTINGS VARS
@@ -342,7 +341,6 @@ class MusicDB(DataBaseHandle):
     # Type - "track", "album" etc
     # track_id - ISRC or UPC
     def set_music(self, msg_id, meta, track_id, type):
-        #title = ''.join(filter(lambda i:i not in special_characters, title))
         sql = "SELECT * FROM music_table"
         cur = self.scur()
 

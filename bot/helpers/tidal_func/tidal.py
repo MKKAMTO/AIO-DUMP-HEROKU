@@ -60,7 +60,6 @@ class TidalAPI(object):
     def __getResolutionList__(self, url):
         ret = []
         txt = requests.get(url).content.decode('utf-8')
-        # array = txt.split("#EXT-X-STREAM-INF")
         array = txt.split("#")
         for item in array:
             if "RESOLUTION=" not in item:
@@ -116,7 +115,6 @@ class TidalAPI(object):
             else:
                 raise Exception("Error while checking for authorization. Trying again...")
 
-        # if auth is successful:
         self.key.userId = result['user']['userId']
         self.key.countryCode = result['user']['countryCode']
         self.key.accessToken = result['access_token']
@@ -143,7 +141,6 @@ class TidalAPI(object):
         if 'status' in result and result['status'] != 200:
             return False
 
-        # if auth is successful:
         self.key.userId = result['user']['userId']
         self.key.countryCode = result['user']['countryCode']
         self.key.accessToken = result['access_token']
