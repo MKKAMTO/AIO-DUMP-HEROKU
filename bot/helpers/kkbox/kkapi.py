@@ -2,6 +2,7 @@ import json
 
 from config import Config
 from random import randrange
+import sys
 from time import time, sleep
 from Cryptodome.Hash import MD5
 from Cryptodome.Cipher import ARC4
@@ -72,10 +73,10 @@ class KkboxAPI:
         if resp['status'] not in (2, 3):
             if resp['status'] == -1:
                 LOGGER.debug('KKBOX - Incorrect Email Provided')
-                exit(1)
+                sys.exit(1)
             elif resp['status'] == -2:
                 LOGGER.debug('KKBOX - Incorrect Password Provided')
-                exit(1)
+                sys.exit(1)
             elif resp['status'] == -4:
                 LOGGER.debug('KKBOX - IP address is in unsupported region, use a VPN')
                 set_db.set_variable("KKBOX_AUTH", False, False, None)

@@ -9,6 +9,7 @@ from bot.helpers.spotify.handler import spotify_dl
 from bot.helpers.tidal_func.events import loadTidal
 from bot.helpers.database.postgres_impl import set_db
 from bot.helpers.tidal_func.events import checkLoginTidal
+import sys
 
 
 async def checkLogins(provider):
@@ -65,10 +66,10 @@ async def loadConfigs():
     if not "" in {Config.DEEZER_EMAIL, Config.DEEZER_PASSWORD}:
         if Config.DEEZER_BF_SECRET == "":
             LOGGER.debug("Deezer BF Secret not provided. Get it from OrpheusDL Telegram Chat.")
-            exit(1)
+            sys.exit(1)
         if Config.DEEZER_TRACK_URL_KEY == "":
             LOGGER.debug("Deezer Track URL Key not provided. Get it from OrpheusDL Telegram Chat.")
-            exit(1)
+            sys.exit(1)
         await deezerdl.login()
     elif Config.DEEZER_ARL != "":
         await deezerdl.login(True)
