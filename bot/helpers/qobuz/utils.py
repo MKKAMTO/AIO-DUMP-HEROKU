@@ -150,7 +150,7 @@ async def get_metadata(id, type='track'):
 async def check_quality(raw_meta, type='track'):
     if int(qobuz_api.quality) == 5:
         return 'mp3', '320k'
-    if not type=='track':
+    if type!='track':
         raw_meta = raw_meta["tracks"]["items"][0]
         new_track_dict = qobuz_api.get_track_url(raw_meta["id"])
     else:
