@@ -40,7 +40,9 @@ class KkboxAPI:
         cipher = ARC4.new(self.kc1_key)
         return cipher.decrypt(data).decode('utf-8')
 
-    def api_call(self, host, path, params={}, payload=None):
+    def api_call(self, host, path, params=None, payload=None):
+        if params is None:
+            params = {}
         if host == 'ticket':
             payload = json.dumps(payload)
 

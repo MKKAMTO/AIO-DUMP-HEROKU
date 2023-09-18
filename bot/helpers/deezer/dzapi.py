@@ -45,7 +45,9 @@ class DeezerAPI:
             'accept-language': 'en-US,en;q=0.9',
         })
 
-    def _api_call(self, method, payload={}):
+    def _api_call(self, method, payload=None):
+        if payload is None:
+            payload = {}
         api_token = self.api_token if method not in ('deezer.getUserData', 'user.getArl') else ''
         params = {
             'method': method,

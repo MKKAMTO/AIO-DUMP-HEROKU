@@ -17,7 +17,9 @@ class TidalAPI(object):
         self.apiKey = {'clientId': '7m7Ap0JC9j1cOM3n',
                        'clientSecret': 'vRAdA108tlvkJpTsGZS8rGZ7xTlbJ0qaZ2K9saEzsgY='}
 
-    def __get__(self, path, params={}, urlpre='https://api.tidalhifi.com/v1/'):
+    def __get__(self, path, params=None, urlpre='https://api.tidalhifi.com/v1/'):
+        if params is None:
+            params = {}
         header = {}
         header = {'authorization': f'Bearer {self.key.accessToken}'}
         params['countryCode'] = self.key.countryCode
@@ -38,7 +40,9 @@ class TidalAPI(object):
 
         raise Exception(errmsg)
 
-    def __getItems__(self, path, params={}):
+    def __getItems__(self, path, params=None):
+        if params is None:
+            params = {}
         params['limit'] = 50
         params['offset'] = 0
         total = 0
@@ -313,7 +317,9 @@ class TidalAPI(object):
         except:
             return ''
 
-    def getArtistsName(self, artists=[]):
+    def getArtistsName(self, artists=None):
+        if artists is None:
+            artists = []
         array = list(item.name for item in artists)
         return ", ".join(array)
 
