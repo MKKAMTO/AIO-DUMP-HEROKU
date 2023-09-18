@@ -163,7 +163,6 @@ class TidalAPI(object):
         self.key.userId = result['userId']
         self.key.countryCode = result['countryCode']
         self.key.accessToken = accessToken
-        return
 
     def getAlbum(self, id) -> Album:
         return aigpy.model.dictToModel(self.__get__('albums/' + str(id)), Album())

@@ -276,7 +276,6 @@ def smart_discography_filter(
 def create_and_return_dir(directory):
     fix = os.path.normpath(directory)
     os.makedirs(fix, exist_ok=True)
-    return 
 
 async def human_quality(data):
     if data == 5:
