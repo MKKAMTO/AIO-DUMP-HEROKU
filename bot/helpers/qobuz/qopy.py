@@ -1,4 +1,3 @@
-# From vitiko98/qobuz-dl
 import time
 import hashlib
 import requests
@@ -66,7 +65,6 @@ class Client:
             }
         elif epoint == "favorite/getUserFavorites":
             unix = time.time()
-            # r_sig = "userLibrarygetAlbumsList" + str(unix) + kwargs["sec"]
             r_sig = "favoritegetUserFavorites" + str(unix) + kwargs["sec"]
             r_sig_hashed = hashlib.md5(r_sig.encode("utf-8")).hexdigest()
             params = {
@@ -109,7 +107,6 @@ class Client:
         ):
             raise Exception("QOBUZ : Invalid App Secret. Please recheck your credentials.... Disabling QOBUZ")
 
-        #r.raise_for_status()
         return r.json()
 
     def auth(self, auth):

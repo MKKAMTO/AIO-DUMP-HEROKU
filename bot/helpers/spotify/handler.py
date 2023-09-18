@@ -199,8 +199,6 @@ class SpotifyDL:
             # Adds default data to DB cuz nothing there
             set_db.set_variable("SPOTIFY_QUALITY", "160", False, None)
             spotify.quality = AudioQuality.HIGH
-        #spotify.reencode = True if reencode else False
-        #spotify.music_format = 'mp3' if format == 'mp3' and reencode else 'ogg'
         spotify.token = spotify.session.tokens().get("user-read-email")
 
     async def sanitize_data(self, value):

@@ -82,10 +82,8 @@ async def set_m4a(data, handle):
     handle.tags['\xa9ART'] = data['artist']
     handle.tags['cprt'] = data['copyright']
     handle.tags['trkn'] = [[int(data['tracknumber']), int(data['totaltracks'])]]
-    #handle.tags['disk'] = [[__tryInt__(self.discnumber), __tryInt__(self.totaldisc)]]
     handle.tags['\xa9gen'] = data['genre']
     handle.tags['\xa9day'] = data['date']
-    #handle.tags['\xa9wrt'] = __tryList__(self.composer)
     handle.tags['\xa9lyr'] = data['lyrics']
     await savePic(handle, data)
     handle.save()
@@ -98,7 +96,6 @@ async def set_ogg(data, handle):
         handle['album'] = data['album']
         handle['albumartist'] = data['albumartist']
         handle['artist'] = data['artist']
-        #handle['copyright'] = data['copyright']
         handle['tracknumber'] = str(data['tracknumber'])
         handle['totaltracks'] = str(data['totaltracks'])
         handle['discnumber'] = str(data['totaltracks'])
@@ -127,7 +124,6 @@ async def set_mp3(data, handle):
     handle.tags.add(TXXX(encoding=3, text=str(data['totaltracks'])))
     handle.tags.add(TCON(encoding=3, text=data['genre']))
     handle.tags.add(TDRC(encoding=3, text=data['date']))
-    #handle.tags.add(TCOM(encoding=3, text=self.composer))
     handle.tags.add(TSRC(encoding=3, text=data['isrc']))
     handle.tags.add(USLT(encoding=3, lang=u'eng', desc=u'desc', text=data['lyrics']))
     await savePic(handle, data)

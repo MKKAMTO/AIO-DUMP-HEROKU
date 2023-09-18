@@ -78,7 +78,6 @@ class DeezerDL:
             await self.getTrack(track['SNG_ID'], user, 'album')
 
     async def getArtist(self, artist_id, user):
-        #artist = deezerapi.get_artist_name(artist_id)
         albums = deezerapi.get_artist_album_ids(artist_id, 0, -1, False)
         for album_id in albums:
             await self.getAlbum(album_id, user, 'artist')
@@ -96,7 +95,6 @@ class DeezerDL:
         if not is_spatial:
             await set_metadata(filepath, metadata)
 
-        #metadata['thumbnail'] = filepath + f'_thumbnail.jpg'
         await handle_upload(user, filepath, metadata)
         #await send_message(user, filepath, 'audio', metadata)
 
@@ -144,7 +142,6 @@ class DeezerDL:
         metadata = base_metadata.copy()
         if type == 'track':
             metadata['title'] = data['SNG_TITLE']
-            #metadata['album'] = data['ALB_TITLE']
             metadata['artist'] = await self.get_artists_from_meta(data)
             metadata['albumartist'] = data['ART_NAME']
             metadata['tracknumber'] = data.get('TRACK_NUMBER')
@@ -180,7 +177,6 @@ class DeezerDL:
         return ', '.join([str(name) for name in artists])
 
     async def get_image_url(self, md5, img_type):
-        #res = 3000
         if img_type == 'art':
             res = 3000
         elif img_type == 'thumb':

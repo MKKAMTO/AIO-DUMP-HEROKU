@@ -1,4 +1,3 @@
-# From yaronzz/Tidal-Media-Downloader
 import json
 import aigpy
 import base64
@@ -36,7 +35,6 @@ class Settings(aigpy.model.ModelBase):
         if api_index:
             self.apiKeyIndex = int(api_index)
 
-        #self.trackFileFormat = Config.TIDAL_TRACK_FORMAT
 
 
 class TokenSettings(aigpy.model.ModelBase):
