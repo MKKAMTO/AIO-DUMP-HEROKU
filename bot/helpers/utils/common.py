@@ -46,7 +46,7 @@ async def get_file_name(user, meta, type='track'):
     elif type == 'album':
         album = base_path + (await format_string(Config.ALBUM_NAME_FORMAT, meta, user))
         file = album + '/' + (await format_string(Config.TRACK_NAME_FORMAT, meta, user)) + f".{meta['extension']}"
-    elif type == 'playlist' or type == 'mix':
+    elif type in ('playlist', 'mix'):
         playlist = base_path + (await format_string(Config.PLAYLIST_NAME_FORMAT, meta, user)) + f".{meta['extension']}"
         file = playlist + '/' + (await format_string(Config.TRACK_NAME_FORMAT, meta, user)) + f".{meta['extension']}"
     file = sanitize_filepath(file)
