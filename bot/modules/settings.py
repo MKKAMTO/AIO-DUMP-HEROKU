@@ -106,7 +106,7 @@ async def tidal_api_cb(bot, update, refresh=False):
         info = ""
         for number in api:
             info += f"<b>● {number} - {platform[number]}</b>\nFormats - <code>{quality[number]}</code>\nValid - <code>{validity[number]}</code>\n"
-        if option == "panel" or refresh == True:
+        if option == "panel" or refresh is True:
             text = lang.TIDAL_SELECT_API_KEY.format(
                     tidalAPI.getItem(current_api)['platform'],
                     tidalAPI.getItem(current_api)['formats'],
