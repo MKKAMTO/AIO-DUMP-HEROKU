@@ -250,12 +250,12 @@ class TidalAPI(object):
 
     def getArtistAlbums(self, id, includeEP=False):
         data = self.__getItems__(f'artists/{str(id)}/albums')
-        albums = list(aigpy.model.dictToModel(item, Album()) for item in data)
+        albums = [aigpy.model.dictToModel(item, Album()) for item in data]
         if not includeEP:
             return albums
 
         data = self.__getItems__(f'artists/{str(id)}/albums', {"filter": "EPSANDSINGLES"})
-        albums += list(aigpy.model.dictToModel(item, Album()) for item in data)
+        albums += [aigpy.model.dictToModel(item, Album()) for item in data]
         return albums
 
     def getStreamUrl(self, id, quality: AudioQuality):
@@ -317,7 +317,7 @@ class TidalAPI(object):
     def getArtistsName(self, artists=None):
         if artists is None:
             artists = []
-        array = list(item.name for item in artists)
+        array = [item.name for item in artists]
         return ", ".join(array)
 
     def getFlag(self, data, type: Type, short=True, separator=" / "):
