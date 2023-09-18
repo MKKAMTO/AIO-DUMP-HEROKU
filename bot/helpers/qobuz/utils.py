@@ -234,7 +234,7 @@ def smart_discography_filter(
     items = [item["albums"]["items"] for item in contents][0]
 
     # use dicts to group duplicate albums together by title
-    title_grouped = dict()
+    title_grouped = {}
     for item in items:
         title_ = essence(item["title"])
         if title_ not in title_grouped:  # ?
