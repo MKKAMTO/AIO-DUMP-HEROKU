@@ -5,7 +5,6 @@ import aigpy
 from bot.logger import LOGGER
 from bot.helpers.translations import lang
 from bot.helpers.qobuz.qopy import qobuz_api
-from bot.helpers.utils.tg_utils import send_message
 from bot.helpers.utils.common import get_file_name, handle_upload
 from bot.helpers.utils.metadata import base_metadata, set_metadata
 
