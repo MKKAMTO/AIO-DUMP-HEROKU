@@ -57,7 +57,7 @@ async def check_type(url):
 
     content = None
     if type_dict["func"]:
-        content = [item for item in type_dict["func"](item_id)]
+        content = list(type_dict["func"](item_id))
         content_name = content[0]["name"]
         await LOGGER.info(
             f"Downloading all the music from {content_name} "
