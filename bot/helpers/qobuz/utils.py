@@ -186,8 +186,6 @@ async def get_artist(data, type):
         for a in text:
             artists.append(a['name'])
         return ', '.join([str(artist) for artist in artists])
-        """elif type == 'album':
-            return data['subtitle']"""
     elif type == 'album':
         # Getting album artist name from the track metadata itself
         # For the album post
