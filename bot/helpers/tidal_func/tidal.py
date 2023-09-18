@@ -322,7 +322,7 @@ class TidalAPI(object):
         master = False
         atmos = False
         explicit = False
-        if type == Type.Album or type == Type.Track:
+        if type in (Type.Album, Type.Track):
             if data.audioQuality == "HI_RES":
                 master = True
             if type == Type.Album and "DOLBY_ATMOS" in data.audioModes:
@@ -361,7 +361,7 @@ class TidalAPI(object):
         obj = None
         etype, sid = self.parseUrl(string)
         for index, item in enumerate(Type):
-            if etype != Type.Null and etype != item:
+            if etype not in (Type.Null, item):
                 continue
             if item == Type.Null:
                 continue

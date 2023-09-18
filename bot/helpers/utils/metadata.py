@@ -46,7 +46,7 @@ async def set_metadata(audio_path, data):
         await get_duration(audio_path, data, ext)
     if ext == 'flac':
         await set_flac(data, handle)
-    elif ext == 'm4a' or ext == 'mp4':
+    elif ext in ('m4a', 'mp4'):
         await set_m4a(data, handle)
     elif ext == 'mp3':
         await set_mp3(data, handle)
@@ -160,7 +160,7 @@ async def savePic(handle, metadata):
     if ext == 'mp3':
         handle.tags.add(APIC(encoding=3, data=data))
 
-    if ext == 'mp4' or ext == 'm4a':
+    if ext in ('mp4', 'm4a'):
         pic = mp4.MP4Cover(data)
         handle.tags['covr'] = [pic]
 
