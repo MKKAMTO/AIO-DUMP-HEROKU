@@ -5,7 +5,7 @@ from config import Config
 
 from bot.helpers.translations import lang
 from bot.helpers.database.postgres_impl import users_db, admins_db, chats_db,\
-    user_settings, set_db
+    user_settings
 
 from bot.helpers.utils.metadata import format_string
 

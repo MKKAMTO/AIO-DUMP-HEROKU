@@ -3,7 +3,7 @@ import asyncio
 
 from config import Config
 from pydub import AudioSegment
-from librespot.metadata import TrackId, EpisodeId
+from librespot.metadata import TrackId
 from librespot.audio.decoders import AudioQuality, VorbisOnlyAudioQuality
 
 from bot.logger import LOGGER

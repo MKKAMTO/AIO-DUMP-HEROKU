@@ -1,7 +1,6 @@
 import json
 import psycopg2
 import datetime
-import psycopg2.extras
 from .postgres_db import DataBaseHandle
 
 from bot import Config
