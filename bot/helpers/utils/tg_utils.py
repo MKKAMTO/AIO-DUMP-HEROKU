@@ -173,10 +173,7 @@ async def get_chats():
 async def check_id(id=None, message=None, restricted=False):
     all_list = allowed_chats + allowed_users + admins
     if restricted:
-        if id in admins:
-            return True
-        else:
-            return False
+        return id in admins
     else:
         # Seperating Group and PM
         if message.from_user.id != message.chat.id:

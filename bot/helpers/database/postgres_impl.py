@@ -112,10 +112,7 @@ class BotSettings(DataBaseHandle):
             elif vtype == "str":
                 val = str(row[2])
             elif vtype == "bool":
-                if row[2] == "true":
-                    val = True
-                else:
-                    val = False
+                val = row[2] == "true"
 
             return val, row[4]
         else:
