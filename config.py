@@ -2,6 +2,7 @@ import os
 import logging
 from os import getenv
 from dotenv import load_dotenv
+import sys
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -26,7 +27,7 @@ class Config(object):
         BOT_USERNAME = getenv("BOT_USERNAME")
     except:
         LOGGER.warning("Essential Configs are missing")
-        exit(1)
+        sys.exit(1)
 
     try:
         AUTH_CHAT = set(int(x) for x in getenv("AUTH_CHAT").split())
@@ -36,7 +37,7 @@ class Config(object):
         ADMINS = set(int(x) for x in getenv("ADMINS").split())
     except:
         LOGGER.warning("NO ADMIN USER IDS FOUND")
-        exit(1)
+        sys.exit(1)
     
     IS_BOT_PUBLIC = getenv("IS_BOT_PUBLIC", True)
     LOG_CHAT = getenv("LOG_CHAT", "")
