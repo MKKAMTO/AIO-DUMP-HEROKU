@@ -29,11 +29,11 @@ class Config(object):
         exit(1)
 
     try:
-        AUTH_CHAT = set(int(x) for x in getenv("AUTH_CHAT").split())
+        AUTH_CHAT = {int(x) for x in getenv("AUTH_CHAT").split()}
     except:
         AUTH_CHAT = ""
     try:
-        ADMINS = set(int(x) for x in getenv("ADMINS").split())
+        ADMINS = {int(x) for x in getenv("ADMINS").split()}
     except:
         LOGGER.warning("NO ADMIN USER IDS FOUND")
         exit(1)
@@ -43,7 +43,7 @@ class Config(object):
     LOG_ALL_INFO = getenv("LOG_ALL_INFO", "")
 
     try:
-        AUTH_USERS = set(int(x) for x in getenv("AUTH_USERS").split())
+        AUTH_USERS = {int(x) for x in getenv("AUTH_USERS").split()}
     except:
         AUTH_USERS = ""
 
